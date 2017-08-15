@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:screenOrientation="portrait"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0288D1"
+    tools:context="com.example.liruk.hangman.GuessingPage">
+
+    <TextView
+        android:id ="@+id/Word"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="30dp"
+         />
+
+    <TextView
+        android:id ="@+id/Word1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18dp"
+        android:textColor="#FFF"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/Word"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id ="@+id/Word4"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18dp"
+        android:textColor="#FFF"
+        android:layout_below="@+id/Word1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id = "@+id/guessLetter"
+        android:layout_width= "265dp"
+        android:layout_height="58dp"
+        android:textColorHint="#FFF"
+        android:inputType="textNoSuggestions|textVisiblePassword"
+        android:textColor="#FFF"
+        android:maxLength="1"
+        android:hint="Guess a letter"
+        android:layout_below="@+id/Word4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/enter1"
+        android:onClick="toGuess"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="#FFF"
+        android:text="Enter"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_alignBaseline="@+id/guessLetter"
+        android:layout_alignBottom="@+id/guessLetter"
+        android:layout_toRightOf="@+id/guessLetter"
+        android:layout_toEndOf="@+id/guessLetter" />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/hangman_figure_white"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/guessLetter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
+
+
+</RelativeLayout>

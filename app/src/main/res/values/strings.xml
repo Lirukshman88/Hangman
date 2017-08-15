@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hangman</string>
+    <string name="title_activity_winner_or_loser">winnerOrLoser</string>
+</resources>
