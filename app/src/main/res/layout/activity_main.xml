@@ -40,17 +40,29 @@
         android:text="Enter"
         android:layout_alignBaseline="@+id/secretWord"
         android:layout_alignBottom="@+id/secretWord"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_marginRight="7dp"
-        android:layout_marginEnd="7dp" />
+        android:layout_toRightOf="@+id/secretWord"
+        android:layout_toEndOf="@+id/secretWord"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp" />
+
+    <Button
+        android:id="@+id/random"
+        android:onClick="RandomWord"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#FFF"
+        android:text="Random"
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
     <ImageView
         android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:src="@drawable/hangman_figure_white"
-        android:layout_below="@+id/enter"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

@@ -16,6 +16,7 @@ public class GuessingPage extends AppCompatActivity {
     int guessCorrect = 0;
     int guessIncorrect = 0;
     int numberOfSpaces = 0;
+    int guesses;
 
     boolean winner = false;
 
@@ -40,6 +41,7 @@ public class GuessingPage extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.codeName);
         secret = message;
+        guesses = secret.length();
 
         //Puts '_' in the arrayList for the unchosen characters of secret
         //Checks if space occurs then replace with '/'
@@ -62,7 +64,7 @@ public class GuessingPage extends AppCompatActivity {
         guessesLeft = textView2;
         //Prints out incorrect and '_'
         revealIncorrect.setText("INCORRECT BOX: " + Arrays.toString(letterIncorrect.toArray()));
-        guessesLeft.setText("Guesses left: " + (6 - guessIncorrect));
+        guessesLeft.setText("Guesses left: " + (guesses - guessIncorrect));
         revealSecret.setText(changingSecret);
 
     }
@@ -105,7 +107,7 @@ public class GuessingPage extends AppCompatActivity {
                 guessCounter = 0;
 
                 revealIncorrect.setText("INCORRECT BOX: " + Arrays.toString(letterIncorrect.toArray()));
-                guessesLeft.setText("Guesses left: " + (6 - guessIncorrect));
+                guessesLeft.setText("Guesses left: " + (guesses - guessIncorrect));
 
                 //Puts the characterGuessed ArrayList in a string to print it out as a string on the screen
                 for (int i = 0; i < charactersGuessedCorrectly.size(); i++) {
@@ -115,7 +117,7 @@ public class GuessingPage extends AppCompatActivity {
 
                 //Check whether if you solved it by number of guessedCorrect and length of the string
                 //Takes into the spaces as well because the count in the length of the string but not
-                //number of guessedCorrext and checks if you reach the limit of guesses which is 6
+                //number of guessedCorrext and checks if you reach the limit of guesses which is 7
                 //Sends it to the next page
                 Intent intent = new Intent(this, winnerOrLoser.class);
                 if (secret.contains(" ") && (guessCorrect == secret.length() - numberOfSpaces)) {
@@ -136,7 +138,7 @@ public class GuessingPage extends AppCompatActivity {
                     intent.putExtra("secret", secret);
                     startActivity(intent);
                     finish();
-                } else if (guessIncorrect == 6) {
+                } else if (guessIncorrect == guesses) {
                     Toast loseToast = Toast.makeText(getApplicationContext(), "You Lose", Toast.LENGTH_SHORT);
                     loseToast.setGravity(Gravity.CENTER, 0, 0);
                     loseToast.show();

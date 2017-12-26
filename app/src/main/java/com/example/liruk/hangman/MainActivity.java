@@ -9,7 +9,18 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     public static final String codeName = "com.example.myfirstapp.MESSAGE";
-
+    String[] randomWords = {"clearance", "secure", "agent", "relation", "awful",
+                         "rung", "spirit", "treat", "annual", "hierarchy",
+                         "retirement", "definite", "prevent", "wood", "order",
+                         "planet", "pursuit", "squeeze", "latest", "obese",
+                         "medium", "guitar", "diplomat", "admiration", "undermine",
+                         "shock", "shame", "imposter", "runner", "sniff",
+                         "soft", "communication", "birthday", "color", "clean",
+                         "dragon", "century", "identification", "world", "self",
+                         "appearance", "cable", "list", "hero", "reptile",
+                         "king", "cinema", "secretary", "story", "sheet"};
+    String random = "";
+    int numOfRandom = randomWords.length;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,5 +36,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(codeName, secretWord);
         startActivity(intent);
         editText.getText().clear();
+    }
+
+    public void RandomWord(View view){
+        Intent intent = new Intent(this, GuessingPage.class);
+        int index = (int) (Math.random() * (numOfRandom - 1));
+        random = randomWords[index];
+        intent.putExtra(codeName, random);
+        startActivity(intent);
     }
 }
