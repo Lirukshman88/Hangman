@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@drawable/hangman_figure"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/hangman_figure_white"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

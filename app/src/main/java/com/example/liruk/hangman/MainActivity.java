@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static final String codeName = "com.example.myfirstapp.MESSAGE";
@@ -33,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GuessingPage.class);
         EditText editText = (EditText)findViewById(R.id.secretWord);
         String secretWord = editText.getText().toString();
-        intent.putExtra(codeName, secretWord);
-        startActivity(intent);
-        editText.getText().clear();
+        if (secretWord.equals(null) || secretWord.equals(""))
+        {
+            Toast.makeText(this,"Please enter a word",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            intent.putExtra(codeName, secretWord);
+            startActivity(intent);
+            editText.getText().clear();
+        }
     }
 
     public void RandomWord(View view){
